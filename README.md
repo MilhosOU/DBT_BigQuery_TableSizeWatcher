@@ -17,10 +17,13 @@ Specifying a sample size is important for efficiency. Querying large tables in t
 - `tables`: List of tables to monitor.
 - `sample_size`: Number of rows to sample for size estimation.
 
-## Example
+## Out to run
 
 To run the model, set the variables like so:
 
 ```
 dbt build --select BQ_TableSizeWatcher --vars '{"schema": "<YOUR-SCHEMA>", "tables": [<YOUR-TABLES>], "sample_size": <YOUR-SAMPLE-SIZE>}'
 ```
+## Example Output
+
+![example-output](https://github.com/robertocommit/DBT_BigQuery_TableSizeWatcher/assets/30242227/c8224ccc-5052-42e2-922e-6e314272d1eb)
