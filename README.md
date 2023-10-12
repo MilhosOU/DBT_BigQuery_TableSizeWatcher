@@ -2,28 +2,29 @@
 
 ## Description
 
-Monitors and estimates sizes of specified tables and columns in a BigQuery cluster.
+Monitors and estimates sizes of specified tables and columns in a BigQuery cluster. This tool is indispensable for those managing large-scale BigQuery clusters, especially when dealing with billions of rows and potentially unstructured data. 
 
 ## Why This Tool Is Important
 
-In large BigQuery clusters, managing resources efficiently is crucial. Tables can quickly grow in size, leading to increased costs and slower query performance. BQ_TableSizeWatcher helps in identifying the size footprint of individual tables and columns, allowing for proactive management and optimization.
+In the landscape of large BigQuery clusters, resource efficiency is non-negotiable. Tables can exponentially grow, affecting both costs and query performance. BQ_TableSizeWatcher offers granular visibility into the size footprint of individual tables and columns, enabling proactive management and optimization.
 
-Specifying a sample size is important for efficiency. Querying large tables in their entirety can be costly and slow. Using a sample allows for quicker, less resource-intensive size estimations, while still providing a reasonable approximation.
+It's important to note that querying the size of each column in such massive datasets can result in significant expenses. Hence, specifying a sample size is vital for operational efficiency. Querying large tables in their entirety is both cost-prohibitive and resource-intensive. A sample provides a quick and economical size estimation, while maintaining a high degree of accuracy.
 
 ## Variables
 
 - `project`: The BigQuery project ID.
 - `schema`: The BigQuery schema you want to monitor.
 - `tables`: List of tables to monitor.
-- `sample_size`: Number of rows to sample for size estimation.
+- `sample_size`: Number of rows to sample for size estimation. This is critical for cost-effective data observability.
 
-## Out to run
+## How to Run
 
-To run the model, set the variables like so:
+To run the model, set the variables as follows:
 
 ```
 dbt build --select BQ_TableSizeWatcher --vars '{"schema": "<YOUR-SCHEMA>", "tables": [<YOUR-TABLES>], "sample_size": <YOUR-SAMPLE-SIZE>}'
 ```
+
 ## Example Output
 
 ![example-output](https://github.com/robertocommit/DBT_BigQuery_TableSizeWatcher/assets/30242227/c8224ccc-5052-42e2-922e-6e314272d1eb)
